@@ -1,0 +1,19 @@
+#!/usr/bin/sh
+
+case "$1" in
+    "b")
+        sudo dellfan -b
+        echo high | sudo tee /sys/class/drm/card*/device/power_dpm_force_performance_level
+        echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+        ;;       
+    "r")
+        sudo dellfan -r
+        echo auto | sudo tee /sys/class/drm/card*/device/power_dpm_force_performance_level
+        echo schedutil | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor    
+        ;;
+    "s")
+        sudo dellfan -r
+        echo low | sudo tee /sys/class/drm/card*/device/power_dpm_force_performance_level
+        echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor    
+        ;;   
+esac            
