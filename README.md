@@ -10,7 +10,7 @@ The idea is to have 3 separate profiles for gaming, general use and battery life
 ## Compiling
 
 1. Head over to [DavidLapous/DellG5SE-Fan-Linux](https://github.com/DavidLapous/DellG5SE-Fan-Linux)
-2. Download the `DellFan.cpp` and compile it using `g++ -std=c++17 -O2 -march=zen2 -Wall DellFan.cpp -o dellfan`
+2. Download the `DellFan.cpp` and compile it using `g++ -std=c++17 -O2 -march=native -Wall DellFan.cpp -o dellfan`
 3. Next in
    terminal `sudo grubby --args "processor.ignore_ppc=1 amdgpu.ppfeaturemask=0xffffffff ec_sys.write_support=1" --update-kernel=ALL`
 
